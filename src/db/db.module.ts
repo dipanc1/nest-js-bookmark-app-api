@@ -4,10 +4,12 @@ import { bookmarksSchema } from 'src/schemas/bookmarks.schema';
 import { usersSchema } from 'src/schemas/users.schema';
 import { DbService } from './db.service';
 import { DbController } from './db.controller';
+import { ConfigModule } from '@nestjs/config';
 
 @Global()
 @Module({
     imports: [
+        ConfigModule.forRoot(),
         MongooseModule.forFeature([
             {
                 name: 'Users',
@@ -24,14 +26,14 @@ import { DbController } from './db.controller';
             }
         ], 'BookmarksDb'),
         MongooseModule.forRoot(
-            'mongodb+srv://dipan:Dipan123@cluster0.frufg.mongodb.net/Bookmarks-Nestjs?retryWrites=true&w=majority',
+            `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.frufg.mongodb.net/Bookmarks-Nestjs?retryWrites=true&w=majority`,
             {
                 connectionName: 'BookmarksDb',
-                
+                useNewUrlParser: true,
             }
         ),
         MongooseModule.forRoot(
-            'mongodb+srv://dipan:Dipan123@cluster0.frufg.mongodb.net/Bookmarks-Nestjs?retryWrites=true&w=majority',
+            `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.frufg.mongodb.net/Bookmarks-Nestjs?retryWrites=true&w=majority`,
             {
                 connectionName: 'UsersDb',
                 useNewUrlParser: true,
@@ -41,4 +43,4 @@ import { DbController } from './db.controller';
     controllers: [DbController],
     providers: [DbService],
 })
-export class DbModule {}
+export class DbModule { }

@@ -7,4 +7,4 @@ import { DbModule } from './db/db.module';
 @Module({
   imports: [AuthModule, UserModule, BookmarkModule, DbModule],
 })
-export class AppModule {}
+export class AppModule { }
