@@ -39,4 +39,4 @@ import { DbController } from './db.controller';
     controllers: [DbController],
     providers: [DbService],
 })
-export class DbModule { }
+export class DbModule {}

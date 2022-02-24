@@ -12,12 +12,4 @@ export class DbService {
         @InjectModel('Bookmarks') private readonly bookmarksModel: Model<Bookmarks>) {
 
     }
-
-    // async getStudent(){
-    //     return await this.studentModel.find();
-    // }
-
-    // async getAnimals(){
-    //     return await this.animalModel.find();
-    // }
 }
