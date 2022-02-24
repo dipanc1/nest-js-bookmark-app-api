@@ -27,12 +27,14 @@ import { DbController } from './db.controller';
             'mongodb+srv://dipan:Dipan123@cluster0.frufg.mongodb.net/Bookmarks-Nestjs?retryWrites=true&w=majority',
             {
                 connectionName: 'BookmarksDb',
+                
             }
         ),
         MongooseModule.forRoot(
             'mongodb+srv://dipan:Dipan123@cluster0.frufg.mongodb.net/Bookmarks-Nestjs?retryWrites=true&w=majority',
             {
                 connectionName: 'UsersDb',
+                useNewUrlParser: true,
             }
         )
     ],
